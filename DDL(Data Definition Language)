@@ -1,0 +1,58 @@
+create database hindustan;
+use hindustan;
+create table t1(id int,name varchar(10));
+desc t1;
+create table t2(id int primary key,name char(10));
+desc t2;
+insert into t2 values(1,'lando');
+insert into t2 values(2,'hadjar');
+create table t3(id int auto_increment primary key,name char(10));
+desc t3;
+insert into t3(name) values('oscar');
+insert into t3(name) values('hulk');
+select * from t3;
+create table t4(id int,name char(10) default 'lewis');
+desc t4;
+insert into t4 values(2,'oscar');
+insert into t4 values(3,'hulk');
+select * from t4;
+create table t5 as
+select * from t4;
+select * from t5;
+create table t6(sno int,name char(20),gen enum('male','female'));
+insert into t6 values(10,'antahbhdh','male');
+select * from t6;
+create table t7(name char(20),podium set('barca','monaco','abudhabhi'));
+insert into t7 values('antiandsn','barca,monaco');
+select * from t7;
+create table t8(name char(10),sal int,bonus int,tot int generated always as (sal + bonus));
+insert into t8(name,sal,bonus)
+values('toto',3000,2000);
+select * from t8;
+create table t9(name char(10) unique);
+desc t9;
+show tables;
+rename table t9 to team9;
+show tables;
+drop table t3;
+show tables;
+drop table t1,t2;
+select*from t6;
+truncate table t6;
+create database hits;
+use hits;
+create table students(id int,name varchar(10));
+alter table students add age int;
+desc students;
+alter table students add(dept varchar(10),gen char(10));
+alter table students modify column dept varchar(100);
+insert into students values(100,"sara",21,"IT","male");
+insert into students (id,name,age) values(200,"sundur",23);
+select*from students;
+
+
+
+
+
+
+
