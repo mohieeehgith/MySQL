@@ -1,0 +1,36 @@
+create database comp;
+use comp;
+create table zoho(sno int primary key, name varchar(10),dept varchar(10),exp int,city varchar(10));
+insert into zoho values(1,"ramu","IT",2,"chennai");
+insert into zoho values(2,"sara","cse",3,"delhi");
+insert into zoho values(3,"hari","eee",3,"banglore");
+insert into zoho values(4,"mohan","IT",1,"chennai");
+select * from zoho;
+SET SQL_SAFE_UPDATES = 0;
+update zoho set city = "mysore";
+update zoho set city = if (dept = "cse","delhi","banglore");
+insert into zoho values(5,"anbu","cse",1,"chennai");
+insert into zoho values(6,"bala","IT",1,"chennai");
+update zoho set dept = "eee" where sno in (1,4,5);
+update zoho set exp = 3 where name = "anbu";
+insert into zoho values(7,"ravi","cse",1,"chennai");
+insert into zoho values(8,"john","IT",2,"chennai");
+alter table zoho add column bonus int(10);
+update zoho set bonus = case
+when exp>1 then 1000
+when exp>2 then 2000
+else 0
+end;
+update zoho set dept = "mech" where city = "banglore" and exp = 2;
+update zoho set dept = "aero" where city = "banglore" or exp = 3;
+update zoho set city = substring(city,1,3);
+alter table zoho add column Fname varchar(20);
+update zoho set Fname = concat(name,"sri");
+update zoho set dept = replace (dept,"eee","electri");
+alter table zoho add column dob date;
+update zoho set dob=curdate();
+alter table zoho add column jd date;
+update zoho set jd = date_add(dob,interval 5 day);
+update zoho set city = null where dept = "cse";
+update zoho set city = ifnull(city,"del");
+
