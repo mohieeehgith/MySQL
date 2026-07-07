@@ -1,0 +1,24 @@
+create table zoo(id int,name varchar(20),mark int,age int,dept varchar(50));
+insert into zoo values (101, 'Cat', 83, 20, 'CSE');
+insert into zoo values (102, 'Bat', 44, 21, 'EEE');
+insert into zoo values (103, 'Cat', 21, 22, 'ECE');
+insert into zoo values (104, 'Dog', 96, 23, 'EEE');
+insert into zoo values (105, 'Fox', 87, 20, 'ECE');
+select * from zoo;
+select id, name from zoo;
+select * from zoo order by mark;
+select * from zoo order by mark desc;
+select * from zoo order by mark limit 2;
+select * from zoo order by mark, dept;
+select name as studname from zoo;
+select count(*) from zoo;
+select count(*) from zoo where dept = 'CSE';
+select avg(mark) from zoo where dept = 'CSE';
+select dept, count(*) from zoo group by dept;
+select name,case when mark >= 90 then 'Distinction'when mark >= 40 then 'Pass'else 'Fail'end as status from zoo;
+select name, age,
+case 
+    when age <= 20 then 'student'
+    else 'citizen'
+end as nature
+from zoo;
